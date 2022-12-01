@@ -20,8 +20,14 @@ QString Strings::getStr()
         res+=strings[0]+", ";
 
     }
+
     for(int i=1;i<strings.length();i++){
-        res+=strings[i]+", ";
+        if(strings[i].length()==0){
+           return res;
+        }
+        else {
+        res+=strings[i]+", "; }
+
     }
     res.resize(res.size()-2);
     return res;
