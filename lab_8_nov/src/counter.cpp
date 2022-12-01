@@ -6,12 +6,12 @@ Counter::Counter(QObject *parent):QObject(parent){
 
 int Counter::getCounter()
 {
-    qDebug()<<"Сработал метод Get,он вернул какое-то знаечение"<<count;
+    qDebug()<<count;
     return count;
 }
 void Counter::setCounter(int c)
 {
-    qDebug()<<"Сработал метод Set,он установил такое знаечение"<<c;
+    qDebug()<<c;
     count = c;
 }
 
@@ -23,3 +23,4 @@ void Counter::reset()
 {
 count=0;
 }
+
