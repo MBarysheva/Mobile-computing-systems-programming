@@ -5,91 +5,67 @@ import strings 1.0
 
 Page {
     Counter{
-   id:c
-   count: 20
-
+        id:c
+        count: 0
 
     }
     Strings{
-    id:s
-
+        id:s
     }
     id: page
-
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
+    Column {
 
-    // To enable PullDownMenu, place our content in a SilicaFlickable
-    SilicaFlickable {
-        anchors.fill: parent
+        id: column
 
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Show Page 2")
-                onClicked: pageStack.animatorPush(Qt.resolvedUrl("SecondPage.qml"))
-            }
+        width: page.width
+        spacing: Theme.paddingLarge
+
+        Label {
+            id: number
+            x: Theme.horizontalPageMargin
+            text:c.count
+            color: Theme.secondaryHighlightColor
+            font.pixelSize: Theme.fontSizeExtraLarge
         }
-
-        // Tell SilicaFlickable the height of its content.
-        contentHeight: column.height
-
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
-        Column {
-
-            id: column
-
-            width: page.width
-            spacing: Theme.paddingLarge
-            PageHeader {
-                title: qsTr("UI Template")
-            }
-            Label {
-                id: number
-                x: Theme.horizontalPageMargin
-                text:c.count
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
-            }
-            Button{
+        Button{
             text:"Увеличить"
             onClicked:{
-              c.add();
-              number.text=c.count;
+                c.add();
+                number.text=c.count;
             }
-            }
-            Button{
+        }
+        Button{
             text:"Сбросить"
 
             onClicked:{c.reset();
-              number.text=c.count;
+                number.text=c.count;
             }
-            }
-            TextInput{
-                color: "white"
-                text:"dd"
-                id:ti
+        }
+        TextField{
+            color: "white"
+            text:"мяу"
+            id:ti
 
-            }
-            Button{
-                text: "Добавить слово"
-                onClicked:{
+        }
+        Button{
+            text: "Добавить слово"
+            onClicked:{
                 s.add(ti.text.toLowerCase());
                 sl.text=s.strings
-                }
             }
-            Button{
-                text: "Удалить"
-                onClicked:{
+        }
+        Button{
+            text: "Удалить"
+            onClicked:{
                 s.pop();
-                    sl.text=s.strings
-                }
+                sl.text=s.strings
             }
-            Label{
-                id:sl
+        }
+        Label{
+            id:sl
             text:s.strings;
-            }
         }
     }
 }
+
