@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.auroraos.project
+Exec=/usr/bin/ru.auroraos.project
+Name=Template
+Name[ru]=Шаблон
+
+[X-Sailjail]
+Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
+OrganizationName=ru.auroraos
+ApplicationName=project
+ExecDBus=/usr/bin/ru.auroraos.project
